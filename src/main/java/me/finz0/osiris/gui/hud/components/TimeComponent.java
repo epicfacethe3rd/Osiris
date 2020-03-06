@@ -1,4 +1,4 @@
-package me.finz0.osiris.hud.components;
+package me.finz0.osiris.gui.hud.components;
 
 import de.Hero.clickgui.ClickGUI;
 import de.Hero.clickgui.Panel;
@@ -6,22 +6,24 @@ import de.Hero.clickgui.util.ColorUtil;
 import de.Hero.clickgui.util.FontUtil;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.module.ModuleManager;
-import me.finz0.osiris.module.modules.gui.Watermark;
+import me.finz0.osiris.module.modules.gui.Time;
 import me.finz0.osiris.util.Rainbow;
 import net.minecraft.client.gui.Gui;
 
 import java.awt.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class WatermarkComponent extends Panel {
-    public WatermarkComponent(double ix, double iy, ClickGUI parent) {
-        super("Watermark", ix, iy, 10, 10, true, parent);
+public class TimeComponent extends Panel {
+    public TimeComponent(double ix, double iy, ClickGUI parent) {
+        super("Time", ix, iy, 10, 10, false, parent);
         this.isHudComponent = true;
 
     }
 
 
 
-    Watermark mod = ((Watermark) ModuleManager.getModuleByName("Watermark"));
+    Time mod = ((Time) ModuleManager.getModuleByName("Time"));
 
     Color c;
     boolean font;
@@ -31,18 +33,16 @@ public class WatermarkComponent extends Panel {
 
     public void drawHud(){
         doStuff();
-        String s = OsirisMod.MODNAME + " ";
-        if(mod.version.getValBoolean()) s += OsirisMod.MODVER;
-        if(font) OsirisMod.fontRenderer.drawStringWithShadow(s, (float)x, (float)y, text.getRGB());
-        else mc.fontRenderer.drawStringWithShadow(s, (float)x, (float)y, text.getRGB());
+        String date = new SimpleDateFormat("k:mm").format(new Date());
+        if(font) OsirisMod.fontRenderer.drawStringWithShadow(date, (float)x, (float)y, text.getRGB());
+        else mc.fontRenderer.drawStringWithShadow(date, (float)x, (float)y, text.getRGB());
     }
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks){
         doStuff();
-        String s = OsirisMod.MODNAME + " ";
-        if(mod.version.getValBoolean()) s += OsirisMod.MODVER;
-        double w = mc.fontRenderer.getStringWidth(s) + 2;
+        String date = new SimpleDateFormat("k:mm").format(new Date());
+        double w = mc.fontRenderer.getStringWidth(date) + 2;
         c = new Color(50, 50, 50, 100);
         if(isHudComponentPinned) c = new Color(ColorUtil.getClickGUIColor().darker().getRed(), ColorUtil.getClickGUIColor().darker().getGreen(), ColorUtil.getClickGUIColor().darker().getBlue(), 100);
         if (this.dragging) {
@@ -57,8 +57,8 @@ public class WatermarkComponent extends Panel {
         if(extended) {
             double startY = y + height;
             Gui.drawRect((int) x, (int) startY, (int) x + (int) width, (int) startY + (int) height, c.getRGB());
-            if (font) OsirisMod.fontRenderer.drawStringWithShadow(s, (float) x, (float) startY, text.getRGB());
-            else mc.fontRenderer.drawStringWithShadow(s, (float) x, (float) startY, text.getRGB());
+            if (font) OsirisMod.fontRenderer.drawStringWithShadow(date, (float) x, (float) startY, text.getRGB());
+            else mc.fontRenderer.drawStringWithShadow(date, (float) x, (float) startY, text.getRGB());
         }
     }
 

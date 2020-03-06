@@ -1,4 +1,4 @@
-package me.finz0.osiris.hud.components;
+package me.finz0.osiris.gui.hud.components;
 
 import de.Hero.clickgui.ClickGUI;
 import de.Hero.clickgui.Panel;
@@ -7,11 +7,8 @@ import de.Hero.clickgui.util.FontUtil;
 import me.finz0.osiris.module.ModuleManager;
 import me.finz0.osiris.module.modules.gui.ArmorHUD;
 import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.item.ItemStack;
-import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 import java.util.ArrayList;

@@ -121,6 +121,7 @@ public class ModuleManager {
         addMod(new Direction());
         addMod(new ArmorHUD());
         addMod(new CurrentHole());
+        addMod(new CsClickGuiModule());
     }
 
     public static void addMod(Module m){

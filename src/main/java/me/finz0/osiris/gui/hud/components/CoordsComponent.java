@@ -1,4 +1,4 @@
-package me.finz0.osiris.hud.components;
+package me.finz0.osiris.gui.hud.components;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 import de.Hero.clickgui.ClickGUI;

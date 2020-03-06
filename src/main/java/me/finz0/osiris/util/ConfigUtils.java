@@ -5,7 +5,7 @@ import de.Hero.clickgui.ClickGUI;
 import de.Hero.clickgui.Panel;
 import me.finz0.osiris.enemy.Enemies;
 import me.finz0.osiris.enemy.Enemy;
-import me.finz0.osiris.hud.HudComponentManager;
+import me.finz0.osiris.gui.hud.HudComponentManager;
 import me.finz0.osiris.settings.Setting;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.command.Command;

@@ -2,7 +2,8 @@ package me.finz0.osiris;
 
 import de.Hero.clickgui.ClickGUI;
 import me.finz0.osiris.enemy.Enemies;
-import me.finz0.osiris.hud.HudComponentManager;
+import me.finz0.osiris.gui.csgui.CsClickGUI;
+import me.finz0.osiris.gui.hud.HudComponentManager;
 import me.finz0.osiris.settings.SettingsManager;
 import me.finz0.osiris.command.CommandManager;
 import me.finz0.osiris.event.EventProcessor;
@@ -44,7 +45,8 @@ public class OsirisMod {
     EventProcessor eventProcessor;
     public WaypointManager waypointManager;
     public static CFontRenderer fontRenderer;
-    public static Enemies enemies;
+    public Enemies enemies;
+    public CsClickGUI csGui;
 
     public static final EventBus EVENT_BUS = new EventManager();
 
@@ -80,6 +82,7 @@ public class OsirisMod {
 
         clickGui = new ClickGUI();
         HudComponentManager hudComponentManager = new HudComponentManager(0, 0, clickGui);
+        csGui = new CsClickGUI();
         log.info("ClickGUI initialized!");
 
         macroManager = new MacroManager();

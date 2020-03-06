@@ -1,4 +1,4 @@
-package me.finz0.osiris.hud.components;
+package me.finz0.osiris.gui.hud.components;
 
 import de.Hero.clickgui.ClickGUI;
 import de.Hero.clickgui.Panel;
@@ -6,49 +6,43 @@ import de.Hero.clickgui.util.ColorUtil;
 import de.Hero.clickgui.util.FontUtil;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.module.ModuleManager;
-import me.finz0.osiris.module.modules.gui.Bps;
+import me.finz0.osiris.module.modules.gui.Ping;
 import me.finz0.osiris.util.Rainbow;
 import net.minecraft.client.gui.Gui;
-import net.minecraft.util.math.MathHelper;
 
 import java.awt.*;
 import java.text.DecimalFormat;
 
-public class BpsComponent extends Panel {
-    public BpsComponent(double ix, double iy, ClickGUI parent) {
-        super("BPS", ix, iy, 10, 10, false, parent);
+public class PingComponent extends Panel {
+    public PingComponent(double ix, double iy, ClickGUI parent) {
+        super("Ping", ix, iy, 10, 10, false, parent);
         this.isHudComponent = true;
 
     }
 
 
 
-    Bps mod = ((Bps) ModuleManager.getModuleByName("BPS"));
+    Ping mod = ((Ping) ModuleManager.getModuleByName("Ping"));
 
     Color c;
     boolean font;
     Color text;
     Color color;
-    final DecimalFormat df = new DecimalFormat("0.0");
+    DecimalFormat decimalFormat = new DecimalFormat("##.#");
+
 
     public void drawHud(){
         doStuff();
-        final double deltaX = mc.player.posX - mc.player.prevPosX;
-        final double deltaZ = mc.player.posZ - mc.player.prevPosZ;
-        final float tickRate = (mc.timer.tickLength / 1000.0f);
-        final String bps = df.format((MathHelper.sqrt(deltaX * deltaX + deltaZ * deltaZ) / tickRate)) + " BPS";
-        if(font) OsirisMod.fontRenderer.drawStringWithShadow(bps, (float)x, (float)y, text.getRGB());
-        else mc.fontRenderer.drawStringWithShadow(bps, (float)x, (float)y, text.getRGB());
+        String ping = mod.getPing() + "ms";
+        if(font) OsirisMod.fontRenderer.drawStringWithShadow(ping, (float)x, (float)y, text.getRGB());
+        else mc.fontRenderer.drawStringWithShadow(ping, (float)x, (float)y, text.getRGB());
     }
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks){
         doStuff();
-        final double deltaX = mc.player.posX - mc.player.prevPosX;
-        final double deltaZ = mc.player.posZ - mc.player.prevPosZ;
-        final float tickRate = (mc.timer.tickLength / 1000.0f);
-        final String bps = df.format((MathHelper.sqrt(deltaX * deltaX + deltaZ * deltaZ) / tickRate)) + " BPS";
-        double w = mc.fontRenderer.getStringWidth(bps) + 2;
+        String ping = mod.getPing() + "ms";
+        double w = mc.fontRenderer.getStringWidth(ping) + 2;
         c = new Color(50, 50, 50, 100);
         if(isHudComponentPinned) c = new Color(ColorUtil.getClickGUIColor().darker().getRed(), ColorUtil.getClickGUIColor().darker().getGreen(), ColorUtil.getClickGUIColor().darker().getBlue(), 100);
         if (this.dragging) {
@@ -63,8 +57,8 @@ public class BpsComponent extends Panel {
         if(extended) {
             double startY = y + height;
             Gui.drawRect((int) x, (int) startY, (int) x + (int) width, (int) startY + (int) height, c.getRGB());
-            if (font) OsirisMod.fontRenderer.drawStringWithShadow(bps, (float) x, (float) startY, text.getRGB());
-            else mc.fontRenderer.drawStringWithShadow(bps, (float) x, (float) startY, text.getRGB());
+            if (font) OsirisMod.fontRenderer.drawStringWithShadow(ping, (float) x, (float) startY, text.getRGB());
+            else mc.fontRenderer.drawStringWithShadow(ping, (float) x, (float) startY, text.getRGB());
         }
     }
 
