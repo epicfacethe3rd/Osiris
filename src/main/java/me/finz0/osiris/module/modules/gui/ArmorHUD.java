@@ -1,6 +1,6 @@
 package me.finz0.osiris.module.modules.gui;
 
-import de.Hero.settings.Setting;
+import me.finz0.osiris.settings.Setting;
 import me.finz0.osiris.module.Module;
 
 public class ArmorHUD extends Module {

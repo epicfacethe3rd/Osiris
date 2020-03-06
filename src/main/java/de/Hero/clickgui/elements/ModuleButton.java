@@ -18,7 +18,7 @@ import de.Hero.clickgui.elements.menu.ElementComboBox;
 import de.Hero.clickgui.elements.menu.ElementSlider;
 import de.Hero.clickgui.util.ColorUtil;
 import de.Hero.clickgui.util.FontUtil;
-import de.Hero.settings.Setting;
+import me.finz0.osiris.settings.Setting;
 
 /**
  *  Made by HeroCode

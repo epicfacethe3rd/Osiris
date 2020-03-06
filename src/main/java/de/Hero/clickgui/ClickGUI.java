@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import me.finz0.osiris.hud.HudComponentManager;
-import de.Hero.settings.SettingsManager;
+import me.finz0.osiris.settings.SettingsManager;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.module.Module;
 import me.finz0.osiris.module.ModuleManager;

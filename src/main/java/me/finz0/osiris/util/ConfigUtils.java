@@ -6,7 +6,7 @@ import de.Hero.clickgui.Panel;
 import me.finz0.osiris.enemy.Enemies;
 import me.finz0.osiris.enemy.Enemy;
 import me.finz0.osiris.hud.HudComponentManager;
-import de.Hero.settings.Setting;
+import me.finz0.osiris.settings.Setting;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.command.Command;
 import me.finz0.osiris.event.EventProcessor;
@@ -16,7 +16,6 @@ import me.finz0.osiris.friends.Friend;
 import me.finz0.osiris.friends.Friends;
 import me.finz0.osiris.module.modules.chat.Announcer;
 import me.finz0.osiris.module.modules.chat.AutoGG;
-import me.finz0.osiris.module.modules.chat.AutoReply;
 import me.finz0.osiris.module.modules.chat.Spammer;
 import me.finz0.osiris.util.font.CFontRenderer;
 import me.finz0.osiris.waypoint.Waypoint;
@@ -63,7 +62,6 @@ public class ConfigUtils {
         loadMsgs();
         loadAutoGG();
         loadSpammer();
-        loadAutoReply();
         loadAnnouncer();
         loadWaypoints();
         loadHudComponents();
@@ -631,37 +629,6 @@ public class ConfigUtils {
         } catch (Exception var6) {
             var6.printStackTrace();
             //saveAutoGG();
-        }
-
-    }
-
-    public void saveAutoReply() {
-        try {
-            File file = new File(this.Osiris.getAbsolutePath(), "AutoReplyMessage.txt");
-            BufferedWriter out = new BufferedWriter(new FileWriter(file));
-            out.write(AutoReply.getReply());
-            out.close();
-        } catch (Exception var3) {
-        }
-
-    }
-
-    public void loadAutoReply() {
-        try {
-            File file = new File(this.Osiris.getAbsolutePath(), "AutoReplyMessage.txt");
-            FileInputStream fstream = new FileInputStream(file.getAbsolutePath());
-            DataInputStream in = new DataInputStream(fstream);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
-
-            String line;
-            while((line = br.readLine()) != null) {
-                AutoReply.setReply(line);
-            }
-
-            br.close();
-        } catch (Exception var6) {
-            var6.printStackTrace();
-            //saveAutoReply();
         }
 
     }

@@ -1,7 +1,7 @@
 package me.finz0.osiris.module;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
-import de.Hero.settings.Setting;
+import me.finz0.osiris.settings.Setting;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.command.Command;
 import me.finz0.osiris.event.events.RenderEvent;

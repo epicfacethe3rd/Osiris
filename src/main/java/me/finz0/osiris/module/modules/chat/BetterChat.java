@@ -1,19 +1,15 @@
 package me.finz0.osiris.module.modules.chat;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
-import de.Hero.settings.Setting;
+import me.finz0.osiris.settings.Setting;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.module.Module;
 import me.finz0.osiris.friends.Friends;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class BetterChat extends Module {
     public BetterChat() {

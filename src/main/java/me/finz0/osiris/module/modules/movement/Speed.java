@@ -1,6 +1,6 @@
 package me.finz0.osiris.module.modules.movement;
 
-import de.Hero.settings.Setting;
+import me.finz0.osiris.settings.Setting;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.module.Module;
 import net.minecraft.util.math.MathHelper;

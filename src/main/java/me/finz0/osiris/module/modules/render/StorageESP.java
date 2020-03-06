@@ -1,14 +1,11 @@
 package me.finz0.osiris.module.modules.render;
 
-import de.Hero.settings.Setting;
+import me.finz0.osiris.settings.Setting;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.event.events.RenderEvent;
 import me.finz0.osiris.module.Module;
-import me.finz0.osiris.util.GeometryMasks;
 import me.finz0.osiris.util.OsirisTessellator;
 import net.minecraft.tileentity.*;
-import net.minecraft.util.math.AxisAlignedBB;
-import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 import java.util.concurrent.ConcurrentHashMap;

@@ -3,7 +3,7 @@ package me.finz0.osiris;
 import de.Hero.clickgui.ClickGUI;
 import me.finz0.osiris.enemy.Enemies;
 import me.finz0.osiris.hud.HudComponentManager;
-import de.Hero.settings.SettingsManager;
+import me.finz0.osiris.settings.SettingsManager;
 import me.finz0.osiris.command.CommandManager;
 import me.finz0.osiris.event.EventProcessor;
 import me.finz0.osiris.macro.MacroManager;

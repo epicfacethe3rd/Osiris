@@ -26,7 +26,6 @@ public class CommandManager {
         addCommand(new AutoGgCommand());
         addCommand(new OpenFolderCommand());
         addCommand(new LoadSpammerCommand());
-        addCommand(new AutoReplyCommand());
         addCommand(new MiddleXCommand());
         addCommand(new LoadAnnouncerCommand());
         addCommand(new WaypointCommand());

@@ -8,7 +8,7 @@ import de.Hero.clickgui.elements.Element;
 import de.Hero.clickgui.elements.ModuleButton;
 import de.Hero.clickgui.util.ColorUtil;
 import de.Hero.clickgui.util.FontUtil;
-import de.Hero.settings.Setting;
+import me.finz0.osiris.settings.Setting;
 
 /**
  *  Made by HeroCode

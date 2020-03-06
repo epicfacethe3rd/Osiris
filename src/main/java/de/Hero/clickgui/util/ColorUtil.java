@@ -2,7 +2,6 @@ package de.Hero.clickgui.util;
 
 import java.awt.Color;
 
-import de.Hero.settings.SettingsManager;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.util.Rainbow;
 

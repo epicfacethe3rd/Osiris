@@ -1,4 +1,4 @@
-package de.Hero.settings;
+package me.finz0.osiris.settings;
 
 import java.util.ArrayList;
 

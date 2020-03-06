@@ -1,4 +1,4 @@
-package de.Hero.settings;
+package me.finz0.osiris.settings;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -29,8 +29,9 @@ public class Setting {
 	private double max;
 	private boolean onlyint = false;
 
-
 	private Color color;
+
+	private String customVal;
 
 	public Setting(String displayName, Module parent, String sval, ArrayList<String> options, String id){
 		this.displayName = displayName;
@@ -65,6 +66,14 @@ public class Setting {
 		this.parent = parent;
 		this.color = color;
 		this.mode = "ColorPicker";
+		this.id = id;
+	}
+
+	public Setting(String displayName, Module parent, String customVal, String id){
+		this.displayName = displayName;
+		this.parent = parent;
+		this.customVal = customVal;
+		this.mode = "CustomString";
 		this.id = id;
 	}
 	
@@ -138,6 +147,10 @@ public class Setting {
 	public boolean isColorPicker(){
 		return mode.equalsIgnoreCase("ColorPicker");
 	}
+
+	public boolean isCustomString(){
+		return mode.equalsIgnoreCase("CustomString");
+	}
 	
 	public boolean onlyInt(){
 		return this.onlyint;
@@ -163,5 +176,13 @@ public class Setting {
 
 	public int getColorRgb(){
 		return color.getRGB();
+	}
+
+	public String getCustomVal(){
+		return customVal;
+	}
+
+	public void setCustomVal(String newString){
+		customVal = newString;
 	}
 }

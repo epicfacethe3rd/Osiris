@@ -1,6 +1,6 @@
 package me.finz0.osiris.module.modules.combat;
 
-import de.Hero.settings.Setting;
+import me.finz0.osiris.settings.Setting;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.event.events.PacketEvent;
 import me.finz0.osiris.module.Module;

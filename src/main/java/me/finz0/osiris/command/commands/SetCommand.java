@@ -36,11 +36,15 @@ public class SetCommand extends Command {
                     if(s.isCombo()){
                         if(!s.getOptions().contains(args[2])) return;
                         s.setValString(args[2]);
-                        Command.sendClientMessage(s.getDisplayName() + " set to" + s.getValString());
+                        Command.sendClientMessage(s.getDisplayName() + " set to " + s.getValString());
                     }
                     if(s.isColorPicker()){
                         s.setValColor(Color.getColor(args[2]));
-                        Command.sendClientMessage(s.getDisplayName() + " set to" + s.getValColor());
+                        Command.sendClientMessage(s.getDisplayName() + " set to " + s.getValColor());
+                    }
+                    if(s.isCustomString()){
+                        s.setCustomVal(args[2]);
+                        Command.sendClientMessage(s.getDisplayName() + " set to " + s.getCustomVal());
                     }
                 });
             }
