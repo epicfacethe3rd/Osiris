@@ -19,7 +19,7 @@ public class NoEntityTrace extends Module {
     }
 
     public boolean noTrace(){
-        if(pickaxeOnly.getValBoolean()) return isHoldingPickaxe;
-        return true;
+        if(pickaxeOnly.getValBoolean()) return isEnabled() && isHoldingPickaxe;
+        return isEnabled();
     }
 }
