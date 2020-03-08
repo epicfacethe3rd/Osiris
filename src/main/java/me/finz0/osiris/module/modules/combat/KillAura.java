@@ -6,6 +6,8 @@ import me.finz0.osiris.event.events.PacketEvent;
 import me.finz0.osiris.module.Module;
 import me.finz0.osiris.module.ModuleManager;
 import me.finz0.osiris.friends.Friends;
+import me.finz0.osiris.util.BlockUtils;
+import me.finz0.osiris.util.TpsUtils;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.entity.Entity;
@@ -28,9 +30,13 @@ public class KillAura extends Module {
     private Setting swordOnly;
     private Setting caCheck;
     private Setting criticals;
+    private Setting rotate;
+    private Setting tpsSync;
     public void setup(){
         range = new Setting("Range", this, 5.0, 0.0, 10.0, false, "KillAuraRange");
         OsirisMod.getInstance().settingsManager.rSetting(range);
+        rSetting(rotate = new Setting("Rotate", this, true, "KillAuraRotate"));
+        rSetting(tpsSync = new Setting("TpsSync", this, false, "KillAuraTpsSync"));
         OsirisMod.getInstance().settingsManager.rSetting(criticals = new Setting("Criticals", this, false, "KillAuraCriticals"));
         OsirisMod.getInstance().settingsManager.rSetting(swordOnly = new Setting("SwordOnly", this, false, "KillAuraSwordOnly"));
         OsirisMod.getInstance().settingsManager.rSetting(caCheck = new Setting("CrystalAuraCheck", this, false, "KillAuraCaCheck"));
@@ -81,8 +87,11 @@ public class KillAura extends Module {
     }
 
     public void attack(Entity e){
-        if(mc.player.getCooledAttackStrength(0) >= 1) {
+        float i = 1;
+        if(tpsSync.getValBoolean()) i = (1 * TpsUtils.getTickRate()) / 20;
+        if(mc.player.getCooledAttackStrength(0) >= i){
             isAttacking = true;
+            if(rotate.getValBoolean()) BlockUtils.faceVectorPacketInstant(e.getPositionVector());
             mc.playerController.attackEntity(mc.player, e);
             mc.player.swingArm(EnumHand.MAIN_HAND);
             isAttacking = false;
