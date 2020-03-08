@@ -1,6 +1,7 @@
 package me.finz0.osiris.mixin.mixins;
 
 import me.finz0.osiris.module.ModuleManager;
+import me.finz0.osiris.module.modules.misc.NoEntityTrace;
 import me.finz0.osiris.module.modules.render.NoRender;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.EntityRenderer;
@@ -32,7 +33,7 @@ public class MixinEntityRenderer {
 
     @Redirect(method = "getMouseOver", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/WorldClient;getEntitiesInAABBexcluding(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/AxisAlignedBB;Lcom/google/common/base/Predicate;)Ljava/util/List;"))
     public List<Entity> getEntitiesInAABBexcluding(WorldClient worldClient, Entity entityIn, AxisAlignedBB boundingBox, Predicate predicate) {
-        if (ModuleManager.isModuleEnabled("NoEntityTrace")) {
+        if (((NoEntityTrace)ModuleManager.getModuleByName("NoEntityTrace")).noTrace()) {
             return new ArrayList<>();
         } else {
             return worldClient.getEntitiesInAABBexcluding(entityIn, boundingBox, predicate);
