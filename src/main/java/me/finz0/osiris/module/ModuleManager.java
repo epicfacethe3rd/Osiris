@@ -40,6 +40,7 @@ public class ModuleManager {
         addMod(new FastUse());
         addMod(new NoSwing());
         addMod(new SpeedMine());
+        //addMod(new Freecam());
         //Movement
         addMod(new Sprint());
         addMod(new Velocity());
@@ -121,7 +122,7 @@ public class ModuleManager {
         addMod(new Direction());
         addMod(new ArmorHUD());
         addMod(new CurrentHole());
-        addMod(new CsClickGuiModule());
+        //addMod(new CsClickGuiModule());
     }
 
     public static void addMod(Module m){
