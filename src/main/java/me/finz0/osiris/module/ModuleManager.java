@@ -34,6 +34,7 @@ public class ModuleManager {
         addMod(new HoleFill());
         addMod(new Criticals());
         addMod(new SmartOffhand());
+        addMod(new BedAura());
         //Player
         addMod(new Blink());
         addMod(new PortalGodMode());
