@@ -30,6 +30,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
@@ -194,7 +195,7 @@ public class ConfigUtils {
 
             while(var3.hasNext()) {
                 Waypoint w = (Waypoint) var3.next();
-                out.write(w.getName() + ":" + w.getX() + ":" + w.getY() + ":" + w.getZ() + ":" + w.getColor());
+                out.write(w.getName() + ":" + (int)w.getX() + ":" + (int)w.getY() + ":" + (int)w.getZ() + ":" + w.getColor());
                 out.write("\r\n");
             }
 
