@@ -14,12 +14,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+//this mixin randomly causes crash at startup sometimes idk why somebody help
 @Mixin(value = Minecraft.class, priority = 9999)
 public class MixinMinecraft {
-
-    @Shadow public EntityPlayerSP player;
-
-    @Shadow public PlayerControllerMP playerController;
 
     @Inject(method = "displayGuiScreen", at = @At("HEAD"))
     private void displayGuiScreen(GuiScreen guiScreenIn, CallbackInfo info) {
@@ -31,12 +28,12 @@ public class MixinMinecraft {
     @Redirect(method = "sendClickBlockToController", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/entity/EntityPlayerSP;isHandActive()Z"))
     private boolean isHandActive(EntityPlayerSP player){
         if(ModuleManager.isModuleEnabled("BreakTweaks")) return false;
-        return this.player.isHandActive();
+        return Minecraft.getMinecraft().player.isHandActive();
     }
 
     @Redirect(method = "rightClickMouse", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/PlayerControllerMP;getIsHittingBlock()Z"))
     private boolean isHittingBlock(PlayerControllerMP playerControllerMP){
         if(ModuleManager.isModuleEnabled("BreakTweaks")) return false;
-        return this.playerController.getIsHittingBlock();
+        return Minecraft.getMinecraft().playerController.getIsHittingBlock();
     }
 }

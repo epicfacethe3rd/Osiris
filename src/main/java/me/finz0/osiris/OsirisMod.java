@@ -31,7 +31,7 @@ import java.awt.*;
 public class OsirisMod {
     public static final String MODID = "osiris";
     public static String MODNAME = "Osiris";
-    public static final String MODVER = "1.5.1";
+    public static final String MODVER = "1.6";
     public static final String FORGENAME = "Osiris";
 
     public static final Logger log = LogManager.getLogger(MODNAME);
