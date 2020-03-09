@@ -27,4 +27,15 @@ public class PacketEvent extends OsirisEvent {
         }
     }
 
+    public static class PostReceive extends PacketEvent {
+        public PostReceive(Packet packet) {
+            super(packet);
+        }
+    }
+    public static class PostSend extends PacketEvent {
+        public PostSend(Packet packet) {
+            super(packet);
+        }
+    }
+
 }

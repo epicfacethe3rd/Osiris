@@ -42,6 +42,7 @@ public class ModuleManager {
         addMod(new NoSwing());
         addMod(new SpeedMine());
         //addMod(new Freecam());
+        addMod(new NoInteract());
         //Movement
         addMod(new Sprint());
         addMod(new Velocity());
